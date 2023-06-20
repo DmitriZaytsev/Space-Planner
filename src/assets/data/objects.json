@@ -1,0 +1,18 @@
+[
+  { "name": "Armchair", "imageUrl": "./img/objects-2d/armchair.png" },
+  { "name": "Sofa", "imageUrl": "./img/objects-2d/bigsofa.png" },
+  {
+    "name": "2 Sofas and Table",
+    "imageUrl": "./img/objects-2d/twosofas-table.png"
+  },
+  {
+    "name": "Modern Armchair",
+    "imageUrl": "./img/objects-2d/modernarmchair.png"
+  },
+  { "name": "White Sofa", "imageUrl": "./img/objects-2d/whitesofa.png" },
+  { "name": "Plant", "imageUrl": "./img/objects-2d/plant.png" },
+  {
+    "name": "Semicircular Sofa and Table",
+    "imageUrl": "./img/objects-2d/semicircularsofa-table.png"
+  }
+]
