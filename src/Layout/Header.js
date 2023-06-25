@@ -1,34 +1,25 @@
 export default function Header() {
   return (
-    <header
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem',
-        backgroundColor: '#f2f2f2',
-        marginBottom: '3rem'
-      }}
-    >
+    <header className="bg-sandy flex justify-between items-center p-4 mb-12">
       <div>
-        <h1 style={{ margin: 0 }}>Space Planner</h1>
+        <h1 className="text-3xl">Space Planner</h1>
       </div>
       <div>
         <a
           href="/"
-          style={{ marginRight: '1rem', textDecoration: 'none', color: 'black' }}
+          className=" text-white text-lg mr-6 no-underline"
         >
           Support
         </a>
         <a
           href="/"
-          style={{ marginRight: '1rem', textDecoration: 'none', color: 'black' }}
+          className=" text-white text-lg mr-6 no-underline"
         >
           Projects
         </a>
         <a
           href="/"
-          style={{ textDecoration: 'none', color: 'black' }}
+          className=" text-white text-lg no-underline"
         >
           About company
         </a>
@@ -36,4 +27,3 @@ export default function Header() {
     </header>
   );
 }
-

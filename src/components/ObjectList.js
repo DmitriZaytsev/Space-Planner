@@ -1,37 +1,41 @@
 import DraggableItems from './DraggableItem';
 import objects from '../assets/data/objects.json';
 
-export default function ObjectList() {
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 
+export default function ObjectList() {
     return (
-        <div style={{
-            gridRow: '1',
-            gridColumn: '1/3'
-        }}>
-            <h3>List of Objects</h3>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                gap: '1rem',
-                alignItems: 'center',
-                width: '30rem',
-                height: '7rem',
-                border: '1px solid #333',
-                overflowX: 'scroll',
-            }}>
-                {objects.map((object, index) => (
-                    <DraggableItems object={object} key={index} grabBoolean={false} addToBoardBoolean={true} />
-                ))}
+        <div className="col-span-2 ml-4">
+            <h3 className='text-yellow-900 mb-4'>List of Objects</h3>
+            <div>
+                <SimpleBar
+                    className="custom-scrollbar"
+                    style={{
+                        width: '30rem',
+                        border: '1px solid #986000',
+                        borderRadius: '5px'
+                    }}
+                >
+                    <div
+                        className='flex flex-row p-4'
+                    >
+                        {objects.map((object, index) => (
+                            <DraggableItems
+                                object={object}
+                                key={index}
+                                grabBoolean={false}
+                                addToBoardBoolean={true}
+                            />
+                        ))}
+                    </div>
+                </SimpleBar>
             </div>
-            <div style={{
-                marginTop: '1rem',
-                textAlign: 'center'
-            }}>
-                <span>
-                    Click on an object to add it to the board.
-                </span>
+            <div className="mt-4 text-center">
+                <span className="text-orange-400">Click on an object to add it to the board.</span>
             </div>
         </div>
     );
-};
+}
+
 

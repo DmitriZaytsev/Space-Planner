@@ -1,7 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Cardo&family=Merriweather+Sans&display=swap");
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+*:focus {
+  outline: 5px solid #a57c33;
 }
 
 html {
@@ -9,8 +21,33 @@ html {
 }
 
 body {
-  font-family: "Rubik", sans-serif;
+  font-family: "Merriweather Sans", serif;
   line-height: 1;
   font-weight: 400;
-  color: #555;
+  color: #fff;
+  background-color: #f5f5dc;
+}
+
+a {
+  color: #986000;
+  position: relative;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #986000;
+  transition: width 0.3s ease-out;
+}
+
+a:hover::before {
+  width: 100%;
+}
+
+.custom-scrollbar .simplebar-scrollbar::before {
+  background-color: #986000;
 }

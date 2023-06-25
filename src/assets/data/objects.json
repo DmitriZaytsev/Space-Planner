@@ -14,5 +14,9 @@
   {
     "name": "Semicircular Sofa and Table",
     "imageUrl": "./img/objects-2d/semicircularsofa-table.png"
+  },
+  {
+    "name": "Wall",
+    "imageUrl": "./img/objects-2d/wall.png"
   }
 ]

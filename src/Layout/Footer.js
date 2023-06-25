@@ -1,50 +1,42 @@
 export default function Footer() {
     return (
-        <footer
-            style={{
-                backgroundColor: '#f2f2f2',
-                padding: '1rem',
-                display: 'flex',
-                justifyContent: 'space-between',
-                marginTop: '3rem'
-            }}
-        >
+        <footer className="bg-sandy pb-12 pt-4 flex justify-around mt-12">
             <div>
-                <h3>Account</h3>
-                <ul style={{ listStyleType: 'none', padding: 0 }}>
+                <h3 className="text-color-minty mb-6">Account</h3>
+                <ul className="list-none p-0 flex flex-col gap-3">
                     <li>
-                        <a href="/" style={{ textDecoration: 'none', color: 'black' }}>Login</a>
+                        <a href="/" className="no-underline">Login</a>
                     </li>
                     <li>
-                        <a href="/" style={{ textDecoration: 'none', color: 'black' }}>Sign up</a>
+                        <a href="/" className="no-underline">Sign up</a>
                     </li>
                 </ul>
             </div>
             <div>
-                <h3>Company</h3>
-                <ul style={{ listStyleType: 'none', padding: 0 }}>
+                <h3 className="text-color-minty mb-6">Company</h3>
+                <ul className="list-none p-0 flex flex-col gap-3">
                     <li>
-                        <a href="/" style={{ textDecoration: 'none', color: 'black' }}>Partners</a>
+                        <a href="/" className="no-underline">Partners</a>
                     </li>
                     <li>
-                        <a href="/" style={{ textDecoration: 'none', color: 'black' }}>Our team</a>
+                        <a href="/" className="no-underline">Our team</a>
                     </li>
                     <li>
-                        <a href="/" style={{ textDecoration: 'none', color: 'black' }}>About us</a>
+                        <a href="/" className="no-underline">About us</a>
                     </li>
                 </ul>
             </div>
             <div>
-                <h3>Info</h3>
-                <ul style={{ listStyleType: 'none', padding: 0 }}>
+                <h3 className="text-color-minty mb-6">Info</h3>
+                <ul className="list-none p-0 flex flex-col gap-3">
                     <li>
-                        <a href="/" style={{ textDecoration: 'none', color: 'black' }}>News</a>
+                        <a href="/" className="no-underline">News</a>
                     </li>
                     <li>
-                        <a href="/" style={{ textDecoration: 'none', color: 'black' }}>Help Center</a>
+                        <a href="/" className="no-underline">Help Center</a>
                     </li>
                     <li>
-                        <a href="/" style={{ textDecoration: 'none', color: 'black' }}>Privacy & tepms</a>
+                        <a href="/" className="no-underline">Privacy &amp; terms</a>
                     </li>
                 </ul>
             </div>

@@ -16,10 +16,12 @@ export default function DraggableItem({ object, grabBoolean, addToBoardBoolean }
 
     return (
         <div
+            className='shrink-0'
             onClick={addToBoard}
         >
             <img src={process.env.PUBLIC_URL + object.imageUrl} alt={object.name}
-                style={{ width: '4rem', height: '4rem', cursor: grabBoolean ? 'grab' : 'pointer' }} />
+                style={{ marginRight: '2rem', width: '4rem', height: '4rem', cursor: grabBoolean ? 'grab' : 'pointer' }}
+            />
         </div>
     );
 };

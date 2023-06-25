@@ -1,11 +1,15 @@
+import { useState, useRef } from 'react';
 import { useDispatch, useSelector, } from "react-redux";
-import { delObjects, addFileObjects } from "../redux/reducers/Objects";
 import { zoomIn, zoomOut } from "../redux/reducers/Zoom";
+import { delObjects, addFileObjects } from "../redux/reducers/Objects";
 
 export default function BoardBtns() {
     const addedObjectsToBoard = useSelector(state => state.reducers.objects.objects);
     const fileObjects = useSelector(state => state.reducers.objects.fileobjects);
     const dispatch = useDispatch();
+
+    const [fileName, setFileName] = useState('File isn\'t selected');
+    const fileInputRef = useRef(null);
 
     const saveBoardToFile = () => {
         let dataToSave;
@@ -41,6 +45,12 @@ export default function BoardBtns() {
                 dispatch(addFileObjects(JSON.parse(fileContent)));
             };
             reader.readAsText(file);
+
+            //Set file name
+            setFileName(file.name);
+
+            // Reset value to user can import one fail more than once
+            fileInputRef.current.value = null;
         };
 
     };
@@ -59,24 +69,29 @@ export default function BoardBtns() {
     };
 
     return (
-        <div style={{
-            gridColumn: '1/3',
-            gridRow: '2/4',
-            alignSelf: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem'
-        }}
-        >
-            <button onClick={handleZoomIn}>Zoom in</button>
-            <button onClick={handleZoomOut}>Zoom out</button>
-            <button onClick={saveBoardToFile}>Save to File</button>
-            <button onClick={delItemsOnBoard}>Clear Board</button>
-            <div style={{
-                textAlign: 'center'
-            }}
-            >
-                <input type="file" onChange={(e) => importToBoard(e)} />
+        <div className="col-span-2 row-start-2 row-end-4 self-center flex flex-col gap-4">
+            <button className="text-light-brown hover:scale-110 duration-500" onClick={handleZoomIn}>
+                Zoom in
+            </button>
+            <button className="text-light-brown hover:scale-110 duration-500" onClick={handleZoomOut}>
+                Zoom out
+            </button>
+            <button className="text-light-brown hover:scale-110 duration-500" onClick={saveBoardToFile}>
+                Save to File
+            </button>
+            <button className="text-light-brown hover:scale-110 duration-500" onClick={delItemsOnBoard}>
+                Clear Board
+            </button>
+            <div>
+                <label htmlFor="inputfile"
+                    className="font-semibold text-white bg-sandy inline-block text-lg px-2 py-1 cursor-pointer outline outline-3 hover:outline-sandy duration-500">
+                    Choose File
+                </label>
+                <input type="file" id="inputfile" onChange={(e) => importToBoard(e)}
+                    className="w-0.1 h-0.1 opacity-0 overflow-hidden absolute -z-1 hidden"
+                    ref={fileInputRef}
+                />
+                <span className='text-sandy ml-4'>{fileName}</span>
             </div>
         </div>
     );

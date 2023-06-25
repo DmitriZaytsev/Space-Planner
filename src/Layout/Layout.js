@@ -5,13 +5,8 @@ export default function Layout(props) {
     return (
         <div>
             <Header />
-            <main style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(6, 1fr)',
-                gridTemplateRows: 'repeat(3, 1fr)',
-                justifyItems: 'center',
-            }}
-            >
+            <main 
+            className="grid grid-cols-6 grid-rows-3 justify-items-center">
                 {props.children}
             </main>
             <Footer />

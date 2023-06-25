@@ -3,7 +3,7 @@ import BoardBtns from './components/BoardBtns';
 import Board from './components/Board';
 import Layout from './Layout/Layout';
 
-export default function App () {
+export default function App() {
   return (
     <>
       <Layout>

@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { zoomIn, zoomOut } from "../redux/reducers/Zoom";
 import { updateObject, updateFileObject } from "../redux/reducers/Objects";
 import DraggableCore from "react-draggable";
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 import DraggableItem from "./DraggableItem";
 
 export default function Board() {
@@ -26,16 +28,18 @@ export default function Board() {
 
 
   return (
-    <div
+    <SimpleBar
+      className="custom-scrollbar"
       style={{
         width: '55rem',
         height: '35rem',
-        backgroundImage: `linear-gradient(to right, transparent 1px, #000 1px),
-         linear-gradient(to bottom, transparent 1px, #000 1px)`,
+        backgroundColor: '#FEEAC7',
+        backgroundImage: `radial-gradient(circle, brown 10%, transparent 10%)`,
         backgroundSize: '20px 20px',
-        overflow: 'scroll',
         gridColumn: '3/-1',
         gridRow: '1/-1',
+        borderRadius: '7px',
+        boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
       }}
       onWheel={handleScroll}
     >
@@ -72,7 +76,7 @@ export default function Board() {
           )
         }
       </div >
-    </div>
+    </SimpleBar >
   );
 };
 
