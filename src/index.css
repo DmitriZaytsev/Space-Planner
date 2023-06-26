@@ -6,6 +6,12 @@
 
 @tailwind utilities;
 
+:root {
+  --color-sandy: #fcc89a;
+  --color-light-sandy: #feeac7;
+  --color-orange: #fb923c;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -13,7 +19,7 @@
 }
 
 *:focus {
-  outline: 5px solid #a57c33;
+  outline: 5px solid #fff !important;
 }
 
 html {
@@ -29,7 +35,7 @@ body {
 }
 
 a {
-  color: #986000;
+  color: #fff;
   position: relative;
 }
 
@@ -40,7 +46,7 @@ a:before {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #986000;
+  background-color: #fff;
   transition: width 0.3s ease-out;
 }
 
@@ -49,5 +55,5 @@ a:hover::before {
 }
 
 .custom-scrollbar .simplebar-scrollbar::before {
-  background-color: #986000;
+  background-color: var(--color-orange);
 }

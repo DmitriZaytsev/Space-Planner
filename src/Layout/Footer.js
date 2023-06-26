@@ -2,7 +2,9 @@ export default function Footer() {
     return (
         <footer className="bg-sandy pb-12 pt-4 flex justify-around mt-12">
             <div>
-                <h3 className="text-color-minty mb-6">Account</h3>
+                <h3 className="text-orange-400  mb-6">
+                    <span className="bg-white p-0.5">Account</span>
+                </h3>
                 <ul className="list-none p-0 flex flex-col gap-3">
                     <li>
                         <a href="/" className="no-underline">Login</a>
@@ -13,7 +15,9 @@ export default function Footer() {
                 </ul>
             </div>
             <div>
-                <h3 className="text-color-minty mb-6">Company</h3>
+                <h3 className="text-orange-400 mb-6">
+                    <span className="bg-white p-0.5">Company</span>
+                </h3>
                 <ul className="list-none p-0 flex flex-col gap-3">
                     <li>
                         <a href="/" className="no-underline">Partners</a>
@@ -27,7 +31,9 @@ export default function Footer() {
                 </ul>
             </div>
             <div>
-                <h3 className="text-color-minty mb-6">Info</h3>
+                <h3 className="text-orange-400 mb-6">
+                    <span className="bg-white p-0.5">Info</span>
+                </h3>
                 <ul className="list-none p-0 flex flex-col gap-3">
                     <li>
                         <a href="/" className="no-underline">News</a>

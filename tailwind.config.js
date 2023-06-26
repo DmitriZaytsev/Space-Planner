@@ -9,7 +9,6 @@ module.exports = {
     colors: {
       ...colors,
       'sandy': '#FCC89A',
-      'light-pink': '#FDEED9',
       'light-sandy': '#FEEAC7',
       'light-brown': '#986000',
     },

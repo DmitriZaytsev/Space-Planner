@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { zoomIn, zoomOut } from "../redux/reducers/Zoom";
 import { updateObject, updateFileObject } from "../redux/reducers/Objects";
-import DraggableCore from "react-draggable";
+import Draggable from "react-draggable";
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import DraggableItem from "./DraggableItem";
@@ -22,8 +22,11 @@ export default function Board() {
   };
 
   const getCoords = (data, object) => {
-    dispatch(updateObject({ id: object.id, x: data.lastX, y: data.lastY }));
-    dispatch(updateFileObject({ id: object.id, x: data.lastX, y: data.lastY }));
+    if (addedObjectsToBoard.includes(object)) {
+      dispatch(updateObject({ id: object.id, x: data.lastX, y: data.lastY }));
+    } else {
+      dispatch(updateFileObject({ id: object.id, x: data.lastX, y: data.lastY }));
+    }
   };
 
 
@@ -51,18 +54,21 @@ export default function Board() {
       >
         {addedObjectsToBoard.length > 0 &&
           addedObjectsToBoard.map((object, index) =>
-            <DraggableCore key={index}
+            <Draggable
+              key={index}
+              scale={scale}
               onDrag={(_, data) => getCoords(data, object)}>
               <div>
                 <DraggableItem object={object} key={index} grabBoolean={true} addToBoardBoolean={false} />
               </div>
-            </DraggableCore>
-
+            </Draggable>
           )
         }
         {fileObjects.length > 0 &&
           fileObjects.map((object, index) =>
-            <DraggableCore key={index}
+            <Draggable
+              key={index}
+              scale={scale}
               defaultPosition={{
                 x: object.x || 0,
                 y: object.y || 0,
@@ -71,8 +77,7 @@ export default function Board() {
               <div>
                 <DraggableItem object={object} key={index} grabBoolean={true} addToBoardBoolean={false} />
               </div>
-            </DraggableCore>
-
+            </Draggable>
           )
         }
       </div >

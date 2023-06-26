@@ -7,13 +7,15 @@ import 'simplebar-react/dist/simplebar.min.css';
 export default function ObjectList() {
     return (
         <div className="col-span-2 ml-4">
-            <h3 className='text-yellow-900 mb-4'>List of Objects</h3>
+            <div className="mt-4 mb-2 text-center">
+                <span className="text-orange-400">Click on an object to add it to the board.</span>
+            </div>
             <div>
                 <SimpleBar
                     className="custom-scrollbar"
                     style={{
                         width: '30rem',
-                        border: '1px solid #986000',
+                        border: '1px solid var(--color-light-brown)',
                         borderRadius: '5px'
                     }}
                 >
@@ -31,9 +33,7 @@ export default function ObjectList() {
                     </div>
                 </SimpleBar>
             </div>
-            <div className="mt-4 text-center">
-                <span className="text-orange-400">Click on an object to add it to the board.</span>
-            </div>
+
         </div>
     );
 }

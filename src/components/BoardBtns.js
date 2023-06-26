@@ -37,12 +37,25 @@ export default function BoardBtns() {
 
     const importToBoard = (e) => {
         const file = e.target.files[0];
-        if (file) {
+
+        if (file.type === 'application/json') {
             const reader = new FileReader();
 
             reader.onload = (event) => {
                 const fileContent = event.target.result;
+
+                // check all objects have "id" and "imageUrl"
+                for (const obj of fileContent) {
+
+                    if (!obj.hasOwnProperty('id') || !obj.hasOwnProperty('imageUrl')) {
+
+                        alert('Not correct file. Use file created on this site');
+                        return;
+                    }
+                }
+
                 dispatch(addFileObjects(JSON.parse(fileContent)));
+                console.log(fileContent);
             };
             reader.readAsText(file);
 
@@ -51,7 +64,10 @@ export default function BoardBtns() {
 
             // Reset value to user can import one fail more than once
             fileInputRef.current.value = null;
-        };
+
+        } else {
+            alert('Not correct file. Use file created on this site');
+        }
 
     };
 
@@ -69,22 +85,24 @@ export default function BoardBtns() {
     };
 
     return (
-        <div className="col-span-2 row-start-2 row-end-4 self-center flex flex-col gap-4">
-            <button className="text-light-brown hover:scale-110 duration-500" onClick={handleZoomIn}>
+        <div className="col-span-2 row-start-2 row-end-4 self-center flex flex-col gap-4
+         bg-light-sandy w-90 h-60 p-8">
+            <button className="text-orange-400 hover:scale-110 duration-500 outline-transparent" onClick={handleZoomIn}>
                 Zoom in
             </button>
-            <button className="text-light-brown hover:scale-110 duration-500" onClick={handleZoomOut}>
+            <button className="text-orange-400 hover:scale-110 duration-500 outline-transparent" onClick={handleZoomOut}>
                 Zoom out
             </button>
-            <button className="text-light-brown hover:scale-110 duration-500" onClick={saveBoardToFile}>
+            <button className="text-orange-400 hover:scale-110 duration-500 outline-transparent" onClick={saveBoardToFile}>
                 Save to File
             </button>
-            <button className="text-light-brown hover:scale-110 duration-500" onClick={delItemsOnBoard}>
+            <button className="text-orange-400 hover:scale-110 duration-500 outline-transparent" onClick={delItemsOnBoard}>
                 Clear Board
             </button>
             <div>
                 <label htmlFor="inputfile"
-                    className="font-semibold text-white bg-sandy inline-block text-lg px-2 py-1 cursor-pointer outline outline-3 hover:outline-sandy duration-500">
+                    className="text-white bg-sandy inline-block text-lg px-2 
+                    py-1 cursor-pointer outline outline-3 hover:outline-sandy outline-transparent duration-500">
                     Choose File
                 </label>
                 <input type="file" id="inputfile" onChange={(e) => importToBoard(e)}
